@@ -125,6 +125,28 @@ def eliminar_datos(nombre):
     transaccion = longitud + variable + servicio + datos
     return enviar_transaccion(transaccion)
 
+def buscar_libro(filtro, valor):
+    servicio = "search"
+    datos = f"{filtro} {valor}"
+    longitud = f"{len(servicio + datos):05d}"
+    transaccion = longitud + servicio + datos
+    return enviar_transaccion(transaccion)
+
+
+def prestar_libro(usuario_prestador_id, usuario_solicitante_id, ISBN, fecha_devolucion):
+    servicio = "loan"
+    datos = f"{usuario_prestador_id} {usuario_solicitante_id} {ISBN} {fecha_devolucion}"
+    longitud = f"{len(servicio + datos):05d}"
+    transaccion = longitud + servicio + datos
+    return enviar_transaccion(transaccion)
+
+def obtener_historial_transacciones(user_id):
+    servicio = "hist"
+    datos = str(user_id)
+    longitud = f"{len(servicio + datos):05d}"
+    transaccion = longitud + servicio + datos
+    return enviar_transaccion(transaccion)
+
 def main():
 
     print("Bienvenido!")
