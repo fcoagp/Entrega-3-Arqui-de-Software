@@ -148,7 +148,6 @@ def obtener_historial_transacciones(user_id):
     return enviar_transaccion(transaccion)
 
 def main():
-
     print("Bienvenido!")
     print("1. Login")
     print("2. Registrar")
@@ -173,7 +172,12 @@ def main():
         print("2. Obtener datos")
         print("3. Actualizar datos")
         print("4. Eliminar datos")
-        print("5. Salir")
+        print("5. Buscar libro por título")
+        print("6. Buscar libro por autor")
+        print("7. Buscar libro por género")
+        print("8. Prestar libro")
+        print("9. Obtener historial de transacciones")
+        print("10. Salir")
         opcion = input("Selecciona una opción: ")
 
         if opcion == '1':
@@ -186,20 +190,41 @@ def main():
             respuesta = obtener_datos(nombre)
             print(f"Respuesta del servidor: {respuesta}")
         elif opcion == '3':
-                nombre = input("Ingrese nombre a actualizar: ")
-                nuevo_valor = input("Ingrese valor nuevo: ")
-                respuesta = actualizar_datos(nombre, nuevo_valor)
-                print(f"Respuesta del servidor: {respuesta}")
+            nombre = input("Ingrese nombre a actualizar: ")
+            nuevo_valor = input("Ingrese valor nuevo: ")
+            respuesta = actualizar_datos(nombre, nuevo_valor)
+            print(f"Respuesta del servidor: {respuesta}")
         elif opcion == '4':
             nombre = input("Introduce el nombre: ")
             respuesta = eliminar_datos(nombre)
             print(f"Respuesta del servidor: {respuesta}")
         elif opcion == '5':
+            titulo = input("Introduce el título del libro: ")
+            respuesta = buscar_libro("title", titulo)
+            print(f"Respuesta del servidor: {respuesta}")
+        elif opcion == '6':
+            autor = input("Introduce el autor del libro: ")
+            respuesta = buscar_libro("author", autor)
+            print(f"Respuesta del servidor: {respuesta}")
+        elif opcion == '7':
+            genero = input("Introduce el género del libro: ")
+            respuesta = buscar_libro("genre", genero)
+            print(f"Respuesta del servidor: {respuesta}")
+        elif opcion == '8':
+            usuario_prestador_id = input("ID del usuario prestador: ")
+            usuario_solicitante_id = input("ID del usuario solicitante: ")
+            ISBN = input("ISBN del libro: ")
+            fecha_devolucion = input("Fecha de devolución (YYYY-MM-DD): ")
+            respuesta = prestar_libro(usuario_prestador_id, usuario_solicitante_id, ISBN, fecha_devolucion)
+            print(f"Respuesta del servidor: {respuesta}")
+        elif opcion == '9':
+            user_id = input("Introduce el ID del usuario: ")
+            respuesta = obtener_historial_transacciones(user_id)
+            print(f"Respuesta del servidor: {respuesta}")
+        elif opcion == '10':
             break
         else:
             print("Opción no válida. Inténtalo de nuevo.")
 
-
 if __name__ == "__main__":
     main()
-
