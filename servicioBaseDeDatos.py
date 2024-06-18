@@ -24,7 +24,7 @@ def procesar_transaccion(transaccion):
 def almacenar_datos(nombre, valor):
     try:
         conn = psycopg2.connect(
-            dbname="servicio_db", user="postgres", password="password", host="localhost", port="5432"
+            dbname="Biblioteca", user="postgres", password="postgres", host="localhost", port="5444"
         )
         cur = conn.cursor()
         query = sql.SQL("INSERT INTO datos (nombre, valor) VALUES (%s, %s) RETURNING id")

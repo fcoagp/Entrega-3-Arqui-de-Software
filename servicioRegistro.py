@@ -5,7 +5,7 @@ from psycopg2 import sql
 def registrar_usuario(nombre_usuario, contraseña):
     try:
         conn = psycopg2.connect(
-            dbname="servicio_db", user="postgres", password="password", host="localhost", port="5432"
+            dbname="Biblioteca", user="postgres", password="postgres", host="localhost", port="5444"
         )
         print("Conexión exitosa a la base de datos PostgreSQL.")
         cur = conn.cursor()

@@ -6,7 +6,7 @@ from datetime import datetime
 def prestar_libro(usuario_prestador_id, usuario_solicitante_id, ISBN, fecha_devolucion):
     try:
         conn = psycopg2.connect(
-            dbname="servicio_db", user="postgres", password="password", host="localhost", port="5432"
+            dbname="Biblioteca", user="postgres", password="postgres", host="localhost", port="5444"
         )
         print("Conexión exitosa a la base de datos PostgreSQL.")
         cur = conn.cursor()

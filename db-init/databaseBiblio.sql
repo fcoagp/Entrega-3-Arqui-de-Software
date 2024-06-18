@@ -13,7 +13,7 @@ CREATE TABLE UsuarioAdministrador (
 );
 
 -- Crear la tabla de usuarios clientes
-CREATE TABLE UsuarioCliente (
+CREATE TABLE usuario (
     usuario_id SERIAL PRIMARY KEY,
     primer_nombre VARCHAR(20) NOT NULL,
     apellido VARCHAR(20) NOT NULL,
